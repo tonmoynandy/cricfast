@@ -42,7 +42,7 @@ var HomeController = {
 						teamImg : teamImg
 					})
 				})
-				res.send(result);
+				//res.send(result);
 			})
 		}
 		//response.render("index");
