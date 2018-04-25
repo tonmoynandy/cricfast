@@ -14,12 +14,13 @@ var HomeController = {
 			"http://www.cricbuzz.com/cricket-team/league",
 			"http://www.cricbuzz.com/cricket-team/women"
 		];
+		var result = [];
 		for(let u of urlArr) {
 			let url = u;
 			request(url, function(error, response, html){
 				
 				var $ = cheerio.load(html);
-				var result = [];
+				
 				$(".cb-team-item").each(function(i,e){
 					var teamLink = $(e).find('a').attr('href');
 					var teamImg =  $(e).find('img').attr('src');
@@ -42,9 +43,10 @@ var HomeController = {
 						teamImg : teamImg
 					})
 				})
-				//res.send(result);
+				//
 			})
 		}
+		res.send(result);
 		//response.render("index");
 		//response.send("index");
 	},
